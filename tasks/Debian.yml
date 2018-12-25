@@ -15,7 +15,7 @@
     enabled: yes
 
 - name: Get stats of .my.cnf
-  stat: 
+  stat:
     path: ~/.my.cnf
     get_md5: no
     get_checksum: no
@@ -51,7 +51,7 @@
 
 - name: Remove the test database
   mysql_db:
-    name: test 
+    name: test
     state: absent
 
 - name: Create user for the db
@@ -68,7 +68,7 @@
     state: present
 
 - name: Get stats of monitrc
-  stat: 
+  stat:
     path: "{{monit_dir}}/monitrc"
     get_md5: no
     get_checksum: no

@@ -30,7 +30,7 @@
 - name: Pause for 10 sec
   pause:
     seconds: 10
-  when: mysqld_up|changed
+  when: mysqld_up is changed
 
 - name: Grep temporary password
   shell: "/usr/bin/grep 'temporary password' {{mysql_logfile}} | /usr/bin/awk '{print $NF}'"
@@ -63,7 +63,7 @@
     state: absent
 
 - name: Check db user
-  command: "/usr/bin/mysql -u {{mysql_db_user}} -p'{{mysql_db_passwd}}' {{mysql_db_name}}" 
+  command: "/usr/bin/mysql -u {{mysql_db_user}} -p'{{mysql_db_passwd}}' {{mysql_db_name}}"
   register: check_db_user
   failed_when: False
   changed_when: False
