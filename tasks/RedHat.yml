@@ -4,7 +4,7 @@
     name: "{{mysql_pkg_repo_url}}/{{mysql_repo_pkg_name}}"
     state: present
 
-- name: Install mysql package
+- name: Install mysql packages
   yum:
     name: "{{item}}"
     state: present
